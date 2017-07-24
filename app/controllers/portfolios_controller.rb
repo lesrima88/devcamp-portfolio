@@ -16,9 +16,20 @@ class PortfoliosController < ApplicationController
 		@protfolio_item = Portfolio.find(params[:id])
 	end 
 
+	def destroy
+		@protfolio_item = Portfolio.find(params[:id])
+
+		@protfolio_item.destroy
+		respond_to do |format|
+			format.html {redirect_to portfolios_url  , notice: 'Portfolio item was deleted'}
+		end
+
+	end
+
 
 	def update
 		@protfolio_item = Portfolio.find(params[:id])
+
     
     respond_to do |format|
       if @protfolio_item.update(params.require(:portfolio).permit(:title, :subtitle, :body))
