@@ -5,7 +5,7 @@
 
 
 <% @protfolio_items.each do |protfolio_items| %>
-	<p><%= link_to protfolio_items.title, portfolio_path(protfolio_items.id) %></p>
+	<p><%= link_to protfolio_items.title, portfolio_show_path(protfolio_items.id) %></p>
 	<p><%= protfolio_items.subtitle %></p>
 	<p><%= protfolio_items.body %></p>
 	<%= image_tag protfolio_items.thumb_image unless protfolio_items.thumb_image.nil? %>
