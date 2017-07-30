@@ -5,7 +5,7 @@ class PortfoliosController < ApplicationController
 	end
 
 	def new 
-		@protfolio_item = Portfolio.new
+		@protfolio_item = Portfolio.new  
 	end 
 
 	def edit
@@ -19,11 +19,13 @@ class PortfoliosController < ApplicationController
 	def destroy
 		@protfolio_item = Portfolio.find(params[:id])
 
+        
 		@protfolio_item.destroy
+		
 		respond_to do |format|
 			format.html {redirect_to portfolios_url  , notice: 'Portfolio item was deleted'}
 		end
-
+   
 	end
 
 
